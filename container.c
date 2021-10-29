@@ -95,7 +95,6 @@ int contains(struct container* c, char* value) {
 int inverseDelete(struct container* c, char* value) {
     int count = 0;
     int index = getContainerIndex(value);
-    int i = 0;
     struct node* current = c->data[index];
     while (current->next != 0) {
         if (cmpStr(current->next->data, value) != 0) {
@@ -118,6 +117,7 @@ int inverseDelete(struct container* c, char* value) {
         }
         current = current->next;
     }
+    c->count -= count;
     return count;
 }
 
