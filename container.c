@@ -99,11 +99,11 @@ int inverseDelete(struct container* c, char* value) {
     struct node* current = c->data[index];
     while (current->next != 0) {
         if (cmpStr(current->next->data, value) != 0) {
-            count++;
             struct node* next = current->next;
             current->next = next->next;
             free(next->data);
             free(next);
+            count++;
         } else {
             current = current->next;
         }
@@ -111,10 +111,10 @@ int inverseDelete(struct container* c, char* value) {
     current = c->data[index];
     while (current != 0) {
         if (cmpStr(current->data, value) != 0) {
-            count++;
             c->data[index] = current->next;
             free(current->data);
             free(current);
+            count++;
         }
         current = current->next;
     }
